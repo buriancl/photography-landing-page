@@ -1,0 +1,341 @@
+@import url("https://fonts.googleapis.com/css2?family=Sen&display=swap");
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Sen", sans-serif;
+  color: #fff;
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 88px 20px 0;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  width: 95%;
+  border-bottom: 1px solid #fff;
+  z-index: 1;
+}
+nav .logo {
+  cursor: pointer;
+  font-size: 32px;
+  flex: 1;
+}
+nav .logo a {
+  text-decoration: none;
+  color: #fff;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  list-style-type: none;
+  width: 50%;
+}
+nav ul li {
+  position: relative;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+nav ul li::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -10px;
+  left: 0;
+  background-color: #fff;
+  transform-origin: center;
+  transition: transform 250ms ease-out;
+}
+nav ul li:hover::after {
+  transform: scaleX(1);
+  transform-origin: center;
+}
+nav ul li a {
+  text-decoration: none;
+  color: #fff;
+}
+nav .heading-end {
+  display: flex;
+  align-items: center;
+}
+nav .heading-end .search-container {
+  position: relative;
+  margin-right: 20px;
+}
+nav .heading-end .search-container .search-input {
+  font-family: inherit;
+  font-size: 16px;
+  width: 0;
+  color: #fff;
+  background: transparent;
+  border: none;
+  padding: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  transition: width 300ms ease-in-out;
+}
+nav .heading-end .search-container .search-input:focus {
+  outline: none;
+}
+nav .heading-end .search-container .search-input.active {
+  width: 15vw;
+  border-bottom: 1px solid #fff;
+}
+nav .heading-end .search-container .search-input.active:focus {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+nav .heading-end .search-container .search-toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.menu-burger {
+  position: absolute;
+  top: 18px;
+  right: 48px;
+  width: 40px;
+  z-index: 10;
+  cursor: pointer;
+}
+.menu-burger:before, .menu-burger:after,
+.menu-burger div {
+  content: "";
+  background: #fff;
+  display: block;
+  height: 2px;
+  border-radius: 3px;
+  margin: 6px;
+  transition: 500ms;
+}
+.menu-burger.open:before {
+  transform: translateY(8px) rotate(135deg);
+}
+.menu-burger.open:after {
+  transform: translateY(-8px) rotate(-135deg);
+}
+.menu-burger.open div {
+  transform: scale(0);
+}
+
+.side-menu-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 15vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(100%);
+  transition: transform 500ms ease-in-out;
+}
+.side-menu-container.open {
+  transform: translateX(0);
+}
+.side-menu-container .side-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+  padding: 50px;
+  width: 100%;
+}
+.side-menu-container .side-menu .mobile-only {
+  display: none;
+}
+.side-menu-container .side-menu .side-menu-social-icons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.side-menu-container .side-menu .side-menu-social-icons i {
+  font-size: 24px;
+  cursor: pointer;
+}
+.side-menu-container .side-menu li {
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  border-bottom: 1px solid #fff;
+  width: 100%;
+  text-align: right;
+  padding-bottom: 8px;
+  padding-top: 8px;
+  list-style-type: none;
+  transition: background-color 250ms ease-in;
+}
+.side-menu-container .side-menu li:hover {
+  background-color: #eaeaea;
+}
+.side-menu-container .side-menu li:hover a {
+  color: #303030;
+}
+.side-menu-container .side-menu li a {
+  color: #fff;
+  transition: color 250ms;
+  text-decoration: none;
+}
+
+.social-icons {
+  position: fixed;
+  top: 25vh;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 20vh;
+  z-index: 1;
+  transform: translateX(0);
+  transition: transform 500ms ease-in-out;
+}
+.social-icons.hidden {
+  transform: translateX(200%);
+}
+.social-icons i {
+  font-size: 28px;
+  cursor: pointer;
+  transition: transform 250ms ease-in;
+}
+.social-icons i:hover {
+  transform: scale(1.5);
+}
+
+.carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+.carousel .photo-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+.carousel .photo-container .slide {
+  position: relative;
+  height: 100%;
+  min-width: 100%;
+  background-repeat: none;
+  background-color: rgb(97, 154, 234);
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+}
+.carousel .photo-container .slide .info-container {
+  position: absolute;
+  left: 5%;
+  bottom: 25%;
+  max-width: 33vw;
+}
+.carousel .photo-container .slide .info-container h1 {
+  text-transform: capitalize;
+}
+.carousel .photo-container .slide .info-container h1,
+.carousel .photo-container .slide .info-container h2 {
+  margin-top: 15px;
+  font-size: 32px;
+}
+.carousel .photo-container .slide .more-container {
+  position: absolute;
+  right: 0;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  margin-top: 25px;
+  cursor: pointer;
+}
+.carousel .photo-container .slide .more-container .more {
+  margin-right: 10px;
+  letter-spacing: 1.5px;
+}
+.carousel .photo-container .slide .info-last {
+  position: absolute;
+  left: 5%;
+  top: 20%;
+}
+.carousel .photo-container .slide .info-last h2 {
+  margin-top: 15px;
+  font-size: 32px;
+  max-width: 33vw;
+}
+.carousel .photo-container .slide .info-last .intro-article {
+  margin-top: 25px;
+  max-width: 80vw;
+  font-size: 1.25em;
+  line-height: 1.5em;
+}
+.carousel .photo-container .slide-one {
+  background-image: url(../img/woman-1919143.jpg);
+}
+.carousel .photo-container .slide-two {
+  background-image: url(../img/winters-1898145.jpg);
+}
+.carousel .photo-container .slide-three {
+  background-image: url(../img/winter-1898134.jpg);
+}
+
+.carousel-controls {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.carousel-controls .btn {
+  background-color: transparent;
+  border: none;
+  font-size: 28px;
+  color: #fff;
+  cursor: pointer;
+}
+.carousel-controls .carousel-nav {
+  display: flex;
+  justify-content: center;
+}
+.carousel-controls .carousel-nav .carousel-indicator {
+  border: 0;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  border: 1px solid #fff;
+  background-color: transparent;
+  margin: 0 12px;
+  cursor: pointer;
+  transition: transform 350ms ease-in, background-color 350ms ease-in, box-shadow 350ms ease-in;
+}
+.carousel-controls .carousel-nav .carousel-indicator.current {
+  transform: scale(1.5);
+  background-color: #fff;
+  box-shadow: 0px 0px 15px 5px rgb(255, 255, 255);
+}
