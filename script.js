@@ -2,14 +2,11 @@ const photoContainer = document.querySelector('.photo-container')
 const photoLeftBtn = document.querySelector('.left-btn')
 const photoRightBtn = document.querySelector('.right-btn')
 const photoIndicators = document.querySelectorAll('.carousel-indicator')
-const searchContainer = document.querySelector('.search-container')
-const searchToggle = document.querySelector('.search-toggle-btn')
-const searchInputEl = document.querySelector('.search-input')
 const menuBurgerBtn = document.querySelector('.menu-burger')
 const sideMenuContainer = document.querySelector('.side-menu-container')
+const mobileSideMenuItems = document.querySelectorAll('.mobile-only')
 const socialIconsMenu = document.querySelector('.social-icons')
 const navList = document.querySelector('.nav-list')
-
 const slides = document.querySelectorAll('.slide')
 const slideIndicators = document.querySelectorAll('.carousel-indicator')
 
@@ -31,12 +28,10 @@ const handleSideMenu = () => {
   sideMenuContainer.classList.toggle('open')
   socialIconsMenu.classList.toggle('hidden')
 
-  if (menuBurgerBtn.classList.contains('open')) {
-    searchContainer.style.marginRight = '15vw'
-
-    searchContainer.style.transition = 'margin-right 500ms ease-in-out'
+  if (sideMenuContainer.classList.contains('open')) {
+    navList.style.marginRight = '275px'
   } else {
-    searchContainer.style.marginRight = '20px'
+    navList.style.marginRight = '20px'
   }
 }
 
@@ -55,9 +50,6 @@ const changeImage = () => {
 }
 
 // Event Listeners
-// Search event listeners
-searchToggle.addEventListener('click', handleSearch)
-
 // Menu hamburger event listeners
 menuBurgerBtn.addEventListener('click', handleSideMenu)
 
