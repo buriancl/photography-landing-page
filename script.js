@@ -13,16 +13,6 @@ const slideIndicators = document.querySelectorAll('.carousel-indicator')
 let index = 0
 let windowWidth = window.innerWidth
 
-const handleSearch = () => {
-  if (searchInputEl.classList.contains('active')) {
-    searchInputEl.classList.remove('active')
-    searchInputEl.blur()
-  } else {
-    searchInputEl.classList.add('active')
-    searchInputEl.focus()
-  }
-}
-
 const handleSideMenu = () => {
   menuBurgerBtn.classList.toggle('open')
   sideMenuContainer.classList.toggle('open')

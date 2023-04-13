@@ -18,6 +18,7 @@ body {
   align-items: center;
 }
 
+// Navbar on top. List elements only visible on desktop. Shown in side mene when using mobile
 nav {
   display: flex;
   align-items: center;
@@ -81,6 +82,7 @@ nav {
   }
 }
 
+// Creates and handles the "hamburger" icon on top right
 .menu-burger {
   position: absolute;
   top: 18px;
@@ -114,6 +116,7 @@ nav {
   }
 }
 
+// The side menu, that is brought in when the hamburger icon is clicked
 .side-menu-container {
   position: fixed;
   top: 0;
@@ -184,6 +187,7 @@ nav {
   }
 }
 
+// Social icons on side of page. Only visible on desktop
 .social-icons {
   position: fixed;
   top: 25vh;
@@ -212,6 +216,7 @@ nav {
   }
 }
 
+// Displaying images and text as a carousel
 .carousel {
   position: absolute;
   top: 0;
@@ -283,7 +288,7 @@ nav {
         .intro-article {
           margin-top: 25px;
           max-width: 80vw;
-          font-size: 1.25em;
+          font-size: 1.5em;
           line-height: 1.5em;
         }
       }
@@ -302,6 +307,7 @@ nav {
   }
 }
 
+// Controls for carousel. Can click on arrows to go to next/prev slide or on circle to go to specific slide.
 .carousel-controls {
   position: absolute;
   left: 50%;
@@ -342,6 +348,7 @@ nav {
   }
 }
 
+// Mobile settings
 @media screen and (max-width: 780px) {
   .social-icons {
     display: none;
